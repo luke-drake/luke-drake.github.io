@@ -1,0 +1,6 @@
+{{- /* Placeholder: {{< ph >}}what goes here{{< /ph >}}  Add block="true" for a box. */ -}}
+{{- if eq (.Get "block") "true" -}}
+<div class="ph ph--block"><strong>PLACEHOLDER</strong> {{ .Inner | markdownify }}</div>
+{{- else -}}
+<span class="ph"><strong>PLACEHOLDER:</strong> {{ .Inner | markdownify }}</span>
+{{- end -}}

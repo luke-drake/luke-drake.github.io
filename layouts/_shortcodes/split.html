@@ -1,0 +1,8 @@
+{{- /* Image beside text: {{< split img="/images/x.jpg" alt="..." >}}markdown{{< /split >}} */ -}}
+<div class="split {{ with .Get "class" }}{{ . }}{{ end }}">
+<div class="split__media">
+<img src="{{ .Get "img" | relURL }}" alt="{{ .Get "alt" }}" loading="lazy">
+{{ with .Get "caption" }}<p class="caption">{{ . }}</p>{{ end }}
+</div>
+<div class="split__text">{{ .Inner | markdownify }}</div>
+</div>

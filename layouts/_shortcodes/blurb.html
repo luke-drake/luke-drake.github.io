@@ -1,0 +1,4 @@
+<figure class="blurb">
+<blockquote>{{ .Inner | markdownify }}</blockquote>
+<figcaption><span class="blurb__by">{{ .Get "by" }}</span>{{ with .Get "role" }}<span class="blurb__role">{{ . }}</span>{{ end }}</figcaption>
+</figure>

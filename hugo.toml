@@ -1,0 +1,88 @@
+# ─────────────────────────────────────────────────────────────
+#  Site settings. Most things you'll want to change live here
+#  or in the files under content/.
+# ─────────────────────────────────────────────────────────────
+
+# PLACEHOLDER: change to your real address once you publish,
+# e.g. "https://lukedrake.com/" or "https://YOUR-GITHUB-USERNAME.github.io/"
+baseURL = "https://luke-drake.github.io/"
+locale = "en-us"
+title = "Luke Drake"
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[markup.goldmark.renderer]
+  unsafe = true   # lets you drop simple HTML into the markdown files
+
+[params]
+  author = "Luke Drake"
+  # Short line under your name in the header
+  tagline = "Author · Assistant Professor of Classical Studies, BYU"
+  description = "Luke Drake, author of A Modern Guide to the New Testament (Deseret Book, 2026)."
+
+  # PLACEHOLDER: your public contact email (shown on Speaking & Contact and in the footer)
+  email = "lukedrake@byu.edu"   # from your CV; change if you prefer a different public address
+
+  # ~60-word bio for press and podcast intros (used on About, Media, and Home)
+  shortBio = "Luke Drake is an assistant professor of Classical Studies at BYU in Provo and of Near Eastern Studies at the BYU Jerusalem Center. He received a PhD in ancient Mediterranean religions from the University of North Carolina at Chapel Hill and a Master of Theological Studies from Harvard Divinity School. His research centers on early Christian literature and history. He is the author of *A Modern Guide to the New Testament* (Deseret Book, 2026)."
+
+  # Book links (edit here and every page updates)
+  [params.book]
+    title = "A Modern Guide to the New Testament"
+    publisher = "Deseret Book"
+    year = "2026"
+    isbn = "978-1639935802"
+    cover = "/images/cover-800.jpg"
+    coverSmall = "/images/cover-400.jpg"
+    deseretbook = "https://www.deseretbook.com/product/6095480.html"
+    amazon = "https://www.amazon.com/dp/1639935800"
+    kobo = "https://www.kobo.com/us/en/ebook/a-modern-guide-to-the-new-testament"
+    goodreads = "https://www.goodreads.com/book/show/261330837-a-modern-guide-to-the-new-testament"
+
+  # Newsletter sign-up. Leave action empty to show the placeholder box.
+  # Newsletter sign-up (Kit, free plan). To switch it on, set provider = "kit"
+  # and paste the number from your Kit form's embed code, e.g. form_id = "1234567"
+  # (it's in https://app.kit.com/forms/1234567/subscriptions). Leave provider = ""
+  # to keep the disabled placeholder. Also supported: "buttondown" or "substack"
+  # (set username), or "custom" (set action, and email_field if not "email").
+  [params.newsletter]
+    provider = "kit"
+    form_id = "10104519"
+    username = ""
+    action = ""
+    blurb = "A short note each Come, Follow Me week in 2027 about the world behind that week's reading."
+    privacy = "One email a week or so. Unsubscribe anytime."
+
+  # Profiles shown in the footer and on Scholarship. Leave "" to hide.
+  [params.profiles]
+    orcid = ""            # PLACEHOLDER e.g. "https://orcid.org/0000-0000-0000-0000"
+    commons = ""          # PLACEHOLDER Knowledge Commons profile URL
+    byu = ""              # PLACEHOLDER BYU faculty page URL
+    amazonAuthor = ""     # PLACEHOLDER Amazon author page URL, once Author Central is set up
+    instagram = ""        # PLACEHOLDER
+    facebook = ""         # PLACEHOLDER
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 1
+  [[menus.main]]
+    name = "The Book"
+    pageRef = "/book"
+    weight = 2
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 3
+  [[menus.main]]
+    name = "Media & Podcasts"
+    pageRef = "/media"
+    weight = 4
+  [[menus.main]]
+    name = "Speaking & Contact"
+    pageRef = "/speaking"
+    weight = 5
+  [[menus.main]]
+    name = "Scholarship"
+    pageRef = "/scholarship"
+    weight = 6

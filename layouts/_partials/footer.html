@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div>
+      <p class="site-footer__name">{{ site.Params.author }}</p>
+      <p class="muted">Author of <em>{{ site.Params.book.title }}</em> ({{ site.Params.book.publisher }}, {{ site.Params.book.year }})</p>
+    </div>
+    <div class="site-footer__links">
+      {{ with site.Params.email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ else }}<span class="ph">PLACEHOLDER: contact email</span>{{ end }}
+      {{ with site.Params.profiles.orcid }}<a href="{{ . }}">ORCID</a>{{ end }}
+      {{ with site.Params.profiles.commons }}<a href="{{ . }}">Knowledge Commons</a>{{ end }}
+      {{ with site.Params.profiles.byu }}<a href="{{ . }}">BYU faculty page</a>{{ end }}
+      {{ with site.Params.profiles.instagram }}<a href="{{ . }}">Instagram</a>{{ end }}
+      {{ with site.Params.profiles.facebook }}<a href="{{ . }}">Facebook</a>{{ end }}
+      <a href="{{ site.Params.book.goodreads }}">Goodreads</a>
+    </div>
+  </div>
+  <div class="wrap site-footer__small muted">© {{ now.Year }} {{ site.Params.author }}. Cover image courtesy of {{ site.Params.book.publisher }}.</div>
+</footer>

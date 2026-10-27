@@ -1,0 +1,35 @@
+{{- /* Newsletter sign-up. Configure in hugo.toml → [params.newsletter].
+     provider: "kit" (needs form_id) | "buttondown" (needs username) | "substack" (needs username) | "custom" (needs action) | "" (off)
+     Anything missing → a disabled placeholder form is shown instead. */ -}}
+{{- $n := site.Params.newsletter -}}
+{{- $p := lower (default "" $n.provider) -}}
+{{- $action := "" -}}{{- $field := "email" -}}{{- $iframe := "" -}}
+{{- if and (eq $p "kit") $n.form_id -}}
+  {{- $action = printf "https://app.kit.com/forms/%v/subscriptions" $n.form_id -}}{{- $field = "email_address" -}}
+{{- else if and (eq $p "buttondown") $n.username -}}
+  {{- $action = printf "https://buttondown.com/api/emails/embed-subscribe/%s" $n.username -}}
+{{- else if and (eq $p "substack") $n.username -}}
+  {{- $iframe = printf "https://%s.substack.com/embed" $n.username -}}
+{{- else if and (eq $p "custom") $n.action -}}
+  {{- $action = $n.action -}}{{- $field = default "email" $n.email_field -}}
+{{- end -}}
+<div class="newsletter">
+<p>{{ $n.blurb }}</p>
+{{- if $iframe }}
+<iframe class="newsletter__iframe" src="{{ $iframe }}" width="480" height="150" title="Newsletter sign-up" frameborder="0" scrolling="no" loading="lazy"></iframe>
+{{- else if $action }}
+<form class="newsletter__form" action="{{ $action }}" method="post">
+<label class="sr-only" for="nl-email">Email address</label>
+<input id="nl-email" type="email" name="{{ $field }}" placeholder="you@example.com" autocomplete="email" required>
+{{- if eq $p "buttondown" }}<input type="hidden" name="embed" value="1">{{ end }}
+<button class="btn btn--primary" type="submit">Sign me up</button>
+</form>
+{{- with $n.privacy }}<p class="newsletter__fine">{{ . | markdownify }}</p>{{ end }}
+{{- else }}
+<div class="newsletter__form is-placeholder" aria-disabled="true">
+<input type="email" placeholder="you@example.com" disabled>
+<button class="btn btn--primary" type="button" disabled>Sign me up</button>
+</div>
+<p class="ph"><strong>PLACEHOLDER:</strong> sign-up isn't connected yet. In <code>hugo.toml</code> → <code>[params.newsletter]</code>, set <code>provider = "kit"</code> and paste the Kit form ID into <code>form_id</code>.</p>
+{{- end }}
+</div>

@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="hero__inner wrap">
+    <div class="hero__cover">
+      <img src="{{ site.Params.book.cover | relURL }}" alt="Cover of {{ site.Params.book.title }} by {{ site.Params.author }}" width="800" height="1059">
+    </div>
+    <div class="hero__text">
+      <p class="eyebrow">{{ .Params.eyebrow }}</p>
+      <h1 class="hero__title">{{ site.Params.book.title }}</h1>
+      <p class="hero__pitch">{{ .Params.pitch }}</p>
+      {{ partial "buy-buttons.html" (dict "context" . "style" "light") }}
+      <p class="hero__note">{{ .Params.formatsNote }} <a href="{{ "book/" | relURL }}">See all formats →</a></p>
+    </div>
+  </div>
+</section>
+<div class="home-content">
+  {{ .Content }}
+</div>
+{{ end }}

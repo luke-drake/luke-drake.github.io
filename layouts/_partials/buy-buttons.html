@@ -1,0 +1,5 @@
+{{ $b := site.Params.book }}
+<div class="buy {{ with .style }}buy--{{ . }}{{ end }}">
+  <a class="btn btn--primary" href="{{ $b.deseretbook }}" rel="noopener">Buy at Deseret Book</a>
+  <a class="btn btn--secondary" href="{{ $b.amazon }}" rel="noopener">Buy on Amazon</a>
+</div>

@@ -1,0 +1,14 @@
+<div class="cards">
+{{ range .Page.Params.podcasts }}
+<article class="card">
+<p class="card__status {{ if .episode }}is-live{{ end }}">{{ .status }}</p>
+<h3>{{ .name }}</h3>
+<p class="muted">{{ .hosts }}</p>
+<p>{{ .about }}</p>
+<p class="card__links">
+{{ with .episode }}<a class="btn btn--small btn--primary" href="{{ . }}">Listen to the episode</a>{{ else }}<span class="ph"><strong>PLACEHOLDER:</strong> episode link and air date</span>{{ end }}
+{{ with .show }}<a class="btn btn--small btn--ghost" href="{{ . }}">About the show</a>{{ end }}
+</p>
+</article>
+{{ end }}
+</div>

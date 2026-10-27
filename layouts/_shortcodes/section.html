@@ -1,0 +1,8 @@
+{{- /* A full-width band on the home page. tone = cream | rose | lavender | maroon */ -}}
+<section class="band band--{{ .Get "tone" | default "cream" }}">
+<div class="wrap {{ with .Get "class" }}{{ . }}{{ end }}">
+{{ with .Get "eyebrow" }}<p class="eyebrow">{{ . }}</p>{{ end }}
+{{ with .Get "title" }}<h2>{{ . }}</h2>{{ end }}
+<div class="prose">{{ .Inner | markdownify }}</div>
+</div>
+</section>

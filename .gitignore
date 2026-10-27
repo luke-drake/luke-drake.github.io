@@ -1,0 +1,5 @@
+_src/
+public/
+resources/
+.hugo_build.lock
+screenshots/
