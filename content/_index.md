@@ -2,7 +2,7 @@
 title: "Home"
 eyebrow: "New from Deseret Book · October 2026"
 # The one-line pitch under the title in the big maroon banner:
-pitch: "Step into the world of the New Testament, and see how its history and literary design can deepen your faith and draw you closer to Jesus Christ."
+pitch: "Step into the world of the New Testament, and see how its historical context and literary design can deepen your faith and draw you closer to Jesus Christ."
 formatsNote: "Paperback, eBook, and audiobook."
 ---
 
